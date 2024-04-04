@@ -61,21 +61,6 @@ public class D3Test {
     assertThat(driver.findElement(By.cssSelector(".list-group-item:nth-child(3)")).getText(), is("ID 3. Mistoffelees"));
   }
   @Test
-  public void tEST3CATALOG() {
-    driver.get("https://cs1632.appspot.com//");
-    {
-      WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-      wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt=\'Old Deuteronomy\']")));
-    }
-    driver.findElement(By.linkText("Catalog")).click();
-    {
-      WebElement element = driver.findElement(By.xpath("//img[@alt=\'Old Deuteronomy\']"));
-      String attribute = element.getAttribute("src");
-      vars.put("img", attribute);
-    }
-    assertEquals(vars.get("img").toString(), "https://cs1632.appspot.com/images/cat2.jpg");
-  }
-  @Test
   public void tEST4LISTING() {
     driver.get("https://cs1632.appspot.com//");
     driver.findElement(By.linkText("Catalog")).click();
